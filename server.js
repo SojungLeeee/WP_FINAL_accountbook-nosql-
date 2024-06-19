@@ -1,5 +1,6 @@
 const express = require('express');
 const bodyParser = require('body-parser');
+const path = require('path');  // path 모듈 추가
 const app = express();
 const port = 3000;
 
@@ -9,9 +10,22 @@ app.use(bodyParser.json());
 
 let financialData = {}; // 데이터를 저장할 객체
 
+// 정적 파일 제공 디렉토리 설정
+app.use(express.static(path.join(__dirname, 'withnode')));
+
+// 루트 경로로의 요청을 index.html로 리디렉션
 app.get('/', (req, res) => {
-    res.json("연습");
+    res.sendFile(path.join(__dirname, 'withnode', 'index.html'));
 });
+
+// // 루트 경로로의 요청을 index.html로 리디렉션
+// app.get('/calendar.html', (req, res) => {
+//     res.sendFile(path.join(__dirname, 'withnode', 'calendar.html'));
+// });
+
+// app.get('/', (req, res) => {
+//     res.json("연습");
+// });
 
 // 데이터 저장 엔드포인트
 app.post('/saveData', (req, res) => {
