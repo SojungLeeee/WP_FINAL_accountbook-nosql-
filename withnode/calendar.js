@@ -115,7 +115,7 @@ function addClickListener(btn) {
 }
 
 function newWindow(selectedDate) {
-    window.open(`popup.html?date=${selectedDate}`, "popup", "width=700, height=500, left=400, top=100");
+    window.open(`popup.html?date=${selectedDate}`, "popup", "width=700, height=500, left=100, top=100");
 }
 
 window.getSelectedDate = function() {
