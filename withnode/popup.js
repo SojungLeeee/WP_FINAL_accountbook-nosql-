@@ -157,7 +157,7 @@ function submitData() {
     window.opener.updateParentData(income, expense);
 
     // 서버에 데이터 저장 후, 새 데이터를 가져옴
-    fetch('`${serverURL}`/saveData', {
+    fetch(`${serverURL}/saveData`, {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json'
