@@ -27,7 +27,7 @@ function resetData() {
     }
     if (window.opener && typeof window.opener.resetDayData === "function") {
         window.opener.resetDayData();
-        // window.close(); // 팝업 창 닫기
+        window.close(); // 팝업 창 닫기
     } else {
         alert("부모 창과의 연결이 올바르지 않습니다.");
     }
