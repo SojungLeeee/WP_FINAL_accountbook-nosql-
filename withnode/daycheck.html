@@ -20,11 +20,15 @@
 
     <h1 id="savedata"></h1>
     <script>
+
+        const serverURL = window.location.hostname.includes('localhost') 
+        ? 'http://localhost:3000' 
+        : 'https://port-0-webprogramming-lxn0e9ec59e35a43.sel5.cloudtype.app';
         
         function getData() {
             count=1;
             const date = document.getElementById('date').value;
-            fetch(`http://localhost:3000/withnodetop/withnode/popup.html?date=${date}`)
+            fetch(`${serverURL}/withnodetop/withnode/popup.html?date=${date}`)
                 .then(response => response.json())
                 .then(data => {
                     console.log(data);
@@ -45,7 +49,7 @@
             const date = document.getElementById('date').value;
             if (confirm("정말 데이터를 초기화 하시겠습니까?")) {
                 // 서버에 데이터 초기화 요청을 보냅니다.
-                fetch('http://localhost:3000/resetData', {
+                fetch('`${serverURL}`/resetData', {
                     method: 'POST',
                     headers: {
                         'Content-Type': 'application/json'
