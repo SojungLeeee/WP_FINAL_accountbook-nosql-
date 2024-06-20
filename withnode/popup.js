@@ -11,7 +11,7 @@ function resetData() {
     const date = new URLSearchParams(window.location.search).get('date');
     if (confirm("정말 데이터를 초기화 하시겠습니까?")) {
         // 서버에 데이터 초기화 요청을 보냅니다.
-        fetch('`${serverURL}/resetData', {
+        fetch(`${serverURL}/resetData`, {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'
