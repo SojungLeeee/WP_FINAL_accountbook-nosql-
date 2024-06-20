@@ -13,7 +13,7 @@
     </div>
     <div class="main">
         <button onclick="getData()" class="main2"> 데이터 받아오기 </button>
-        <button onclick="resetData()" class="main2"> 데이터 초기화시키기 </button>
+<!--         <button onclick="resetData()" class="main2"> 데이터 초기화시키기 </button> -->
     </div>
 
 
@@ -49,37 +49,37 @@
         }
 
     
-        function resetData() {
-            const date = document.getElementById('date').value;
-            if (confirm("정말 데이터를 초기화 하시겠습니까?")) {
-                // 서버에 데이터 초기화 요청을 보냅니다.
-                fetch(`${serverURL}/resetData`, {
-                    method: 'POST',
-                    headers: {
-                        'Content-Type': 'application/json'
-                    },
-                    body: JSON.stringify({ date })
-                })
-                .then(response => response.json())
-                .then(data => {
-                    alert(data.message);
-                    // 화면에서 데이터를 초기화합니다.
-                    document.getElementById('savedata').innerHTML = '';
-                });
-            }
-            if (window.opener && window.opener.window.opener && typeof window.opener.window.opener.resetDayData === "function") {
-                window.opener.window.opener.resetDayData(); // calendar.html의 함수 호출
-            } else {
-                alert("부모 창과의 연결이 올바르지 않습니다.");
-            }
+        // function resetData() {
+        //     const date = document.getElementById('date').value;
+        //     if (confirm("정말 데이터를 초기화 하시겠습니까?")) {
+        //         // 서버에 데이터 초기화 요청을 보냅니다.
+        //         fetch(`${serverURL}/resetData`, {
+        //             method: 'POST',
+        //             headers: {
+        //                 'Content-Type': 'application/json'
+        //             },
+        //             body: JSON.stringify({ date })
+        //         })
+        //         .then(response => response.json())
+        //         .then(data => {
+        //             alert(data.message);
+        //             // 화면에서 데이터를 초기화합니다.
+        //             document.getElementById('savedata').innerHTML = '';
+        //         });
+        //     }
+        //     if (window.opener && window.opener.window.opener && typeof window.opener.window.opener.resetDayData === "function") {
+        //         window.opener.window.opener.resetDayData(); // calendar.html의 함수 호출
+        //     } else {
+        //         alert("부모 창과의 연결이 올바르지 않습니다.");
+        //     }
 
-            if (window.opener && window.opener.document.getElementById('savedata')) {
-                window.opener.document.getElementById('savedata').innerHTML = '';
-            } else {
-                alert("부모 창과의 연결이 올바르지 않습니다.");
-            }
+        //     if (window.opener && window.opener.document.getElementById('savedata')) {
+        //         window.opener.document.getElementById('savedata').innerHTML = '';
+        //     } else {
+        //         alert("부모 창과의 연결이 올바르지 않습니다.");
+        //     }
             
-        }
+        // }
 
 
     </script>
