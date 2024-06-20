@@ -35,12 +35,16 @@
                     const savedataElement = document.getElementById('savedata');
                     savedataElement.innerHTML = '';
 
-                    data.savedata.forEach(entry => {
-                        const entryElement = document.createElement('div');
-                        entryElement.innerHTML = `${count}번째 입력: 수입(${entry.howincome}): ${entry.income}원, 지출(${entry.howexpense}): ${entry.expense}원`;
-                        savedataElement.appendChild(entryElement);
-                        count++;
-                    });
+                    if (data.savedata.length === 0) {
+                        alert('해당 일자에 업데이트 된 데이터가 없습니다.');
+                    } else {
+                        data.savedata.forEach(entry => {
+                            const entryElement = document.createElement('div');
+                            entryElement.innerHTML = `${count}번째 입력: 수입(${entry.howincome}): ${entry.income}원, 지출(${entry.howexpense}): ${entry.expense}원`;
+                            savedataElement.appendChild(entryElement);
+                            count++;
+                        });
+                    }
                 });
         }
 
