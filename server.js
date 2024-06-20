@@ -65,7 +65,7 @@ app.post('/saveData', (req, res) => {
 
 
 // 데이터 가져오기 엔드포인트
-app.get('/withnodetop/withnode/popup.html', (req, res) => {
+app.get('/popup.html', (req, res) => {
     const date = req.query.date;
     const data = financialData[date] || [];
     res.json({ savedata: data });
