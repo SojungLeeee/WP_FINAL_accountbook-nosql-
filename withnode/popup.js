@@ -3,13 +3,15 @@ let totalExpense = 0; // 총 지출을 저장할 변수
 let count = 1; // 결과 항목을 세기 위한 카운터
 
 
-
+const serverURL = window.location.hostname.includes('localhost') 
+    ? 'http://localhost:3000' 
+    : 'https://port-0-webprogramming-lxn0e9ec59e35a43.sel5.cloudtype.app';
 
 function resetData() {
     const date = new URLSearchParams(window.location.search).get('date');
     if (confirm("정말 데이터를 초기화 하시겠습니까?")) {
         // 서버에 데이터 초기화 요청을 보냅니다.
-        fetch('http://localhost:3000/resetData', {
+        fetch('`${serverURL}/resetData', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'
@@ -33,7 +35,7 @@ function resetData() {
 
 function getData() {
     const date = new URLSearchParams(window.location.search).get('date'); // URL에서 date 파라미터 가져오기
-    fetch(`http://localhost:3000/withnodetop/withnode/popup.html?date=${date}`)
+    fetch(`${serverURL}/withnodetop/withnode/popup.html?date=${date}`)
         .then(response => response.json())
         .then(data => {
             console.log(data);
@@ -155,7 +157,7 @@ function submitData() {
     window.opener.updateParentData(income, expense);
 
     // 서버에 데이터 저장 후, 새 데이터를 가져옴
-    fetch('http://localhost:3000/saveData', {
+    fetch('`${serverURL}`/saveData', {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json'
