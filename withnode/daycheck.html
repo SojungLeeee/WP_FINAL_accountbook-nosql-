@@ -63,6 +63,11 @@
                     document.getElementById('savedata').innerHTML = '';
                 });
             }
+            if (window.opener && window.opener.window.opener && typeof window.opener.window.opener.resetDayData === "function") {
+                window.opener.window.opener.resetDayData(); // calendar.html의 함수 호출
+            } else {
+                alert("부모 창과의 연결이 올바르지 않습니다.");
+            }
         }
 
 
