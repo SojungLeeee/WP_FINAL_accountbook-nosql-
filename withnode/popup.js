@@ -45,7 +45,7 @@ function getData() {
 
 
 function newWindow() {
-    window.open(`daycheck.html`, "checkday", "width=700, height=500, left=500, top=120");
+    window.open(`daycheck.html`, "checkday", "width=700, height=500, left=700, top=100");
 }
 
 function displayData(savedata) {
