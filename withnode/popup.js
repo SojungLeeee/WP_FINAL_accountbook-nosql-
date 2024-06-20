@@ -33,7 +33,7 @@ function resetData() {
 
 function getData() {
     const date = new URLSearchParams(window.location.search).get('date'); // URL에서 date 파라미터 가져오기
-    fetch(`https://port-0-webprogramming-lxn0e9ec59e35a43.sel5.cloudtype.app/withnodetop/withnode/popup.html?date=${date}`)
+    fetch(`http://localhost:3000/withnodetop/withnode/popup.html?date=${date}`)
         .then(response => response.json())
         .then(data => {
             console.log(data);
